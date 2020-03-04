@@ -15,14 +15,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Parser {
-    private List<String> getListFromFile(File file) {
-        try {
-            return Files.lines(Paths.get(file.getAbsolutePath()))
-                    .collect(Collectors.toList());
-        } catch (IOException e) {
-            return Collections.emptyList();
-        }
-    }
 
     public List<Review> parseCvsToReviews(File file) {
         List<String> list = getListFromFile(file);
@@ -37,5 +29,14 @@ public class Parser {
             reviewEntities.add(entity);
         }
         return reviewEntities;
+    }
+
+    private List<String> getListFromFile(File file) {
+        try {
+            return Files.lines(Paths.get(file.getAbsolutePath()))
+                    .collect(Collectors.toList());
+        } catch (IOException e) {
+            return Collections.emptyList();
+        }
     }
 }
