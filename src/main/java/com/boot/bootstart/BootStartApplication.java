@@ -8,6 +8,6 @@ public class BootStartApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(BootStartApplication.class, args);
-    }
 
+    }
 }
